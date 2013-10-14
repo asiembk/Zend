@@ -1,0 +1,57 @@
+<?php
+$title = 'My Categories';
+$this->headTitle($title);
+?>
+<?php
+$url = $this->url('category', array(
+    'action' => 'deleteall',
+  
+));
+?>
+<form name="deleteall" action="<?php echo $url; ?>" method="get">
+
+	<div class="navbar" >
+		 <div class="navbar-inner" >
+			 <div class="container" >
+
+				   <h1><?php echo $this->escapeHtml($title); ?></h1>
+					<div style="float:right">
+						<a  class="btn btn-success" href="<?php echo $this->url('category', array('action'=>'add'));?>">Add new category</a> |
+						<input type="submit" name="deleteall" value="Deleteall" class="btn btn-danger"/>
+					</div>
+			</div>
+		</div>
+	</div>
+	<table class="table table-striped">
+		<tr>
+		 <th class="selector"><input id="all" type="checkbox" onClick="checkAll();" /></th>
+			<th>Name</th>
+			<th>Action</th>
+		</tr>
+		<?php foreach ($categories as $category) : ?>
+		<tr>
+			<td class="selector"><input type="checkbox"  name="categories[]"  value ="<?php echo $category->id;?>" /></td>
+			<td><?php echo $this->escapeHtml($category->name);?></td>    
+			<td>
+				<a  class="btn btn-mini btn-warning"href="<?php echo $this->url('category',
+					array('action'=>'edit', 'id' => $category->id));?>">Edit</a> |
+				<a   class="btn btn-mini btn-danger" href="<?php echo $this->url('category',
+					array('action'=>'delete', 'id' => $category->id));?>">Delete</a>
+			</td>
+		</tr>
+		<?php endforeach; ?>
+	</table>
+
+</form>
+
+<script type="text/javascript" >
+function checkAll() {
+var all = document.getElementById("all");
+	var inputs = document.getElementsByTagName('input');
+	for(var i=0; i<inputs.length; i++){
+	if(inputs[i].getAttribute('type')=='checkbox'){
+		inputs[i].checked = all.checked? true:false
+	}
+	}
+}
+</script>

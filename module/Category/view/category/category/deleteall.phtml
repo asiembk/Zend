@@ -1,0 +1,15 @@
+<?php
+
+
+$title = 'Delete selected categories';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+
+<?php
+$url = $this->url('category', array(
+    'action' => 'delete_all',
+    'categories'     => $categories,
+));
+?>

@@ -1,0 +1,31 @@
+<?php
+
+$title = 'Delete category';
+$this->headTitle($title);
+?>
+<div class="navbar" >
+	<div class="navbar-inner" >
+			 <div class="container" >
+				   <h1><?php echo $this->escapeHtml($title); ?></h1>
+					
+			</div>
+	</div>
+</div>
+<div class="alert alert-warning">
+<p>Are you sure that you want to delete
+    '<?php echo $this->escapeHtml($category->name); ?>'
+</p>
+</div>
+<?php
+$url = $this->url('category', array(
+    'action' => 'delete',
+    'id'     => $this->id,
+));
+?>
+<form action="<?php echo $url; ?>" method="post">
+<div>
+    <input type="hidden" name="id" value="<?php echo (int) $category->id; ?>" />
+    <input type="submit" class="btn btn-success" name="del" value="Yes" />
+    <input type="submit" class="btn btn-danger" name="del" value="No" />
+</div>
+</form>
