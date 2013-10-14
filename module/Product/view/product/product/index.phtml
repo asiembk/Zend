@@ -43,8 +43,8 @@ $url = $this->url('product', array(
 			<option value="<?php echo $product->id; ?>"> <?php echo $product->name; ?></option>
 			  <?php endforeach;?>
 			 
-        </select>
-        <a  class="btn btn-success" href="<?php echo $this->url('category', array('action'=>'add'));?>">Add new Category</a> 
+        </select> 
+        <a  class="btn btn-success"  style="margin-left:10px"href="<?php echo $this->url('category', array('action'=>'add'));?>">Add new Category</a> 
 		
 		
 		<div style="float:right">
@@ -96,5 +96,4 @@ var all = document.getElementById("all");
 	}
 	}
 }	
-
-	</script>
+</script>
