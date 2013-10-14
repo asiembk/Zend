@@ -1,6 +1,5 @@
 <?php
 
-
 $title = 'Add new category';
 $this->headTitle($title);
 ?>
@@ -12,6 +11,11 @@ $form->prepare();
 
 echo $this->form()->openTag($form);
 echo $this->formHidden($form->get('id'));
-echo $this->formRow($form->get('name'));
-echo $this->formSubmit($form->get('submit'));
+?>
+<table class="table table-striped">
+	
+	<tr><td><?php echo $this->formRow($form->get('name'));?></td></tr>
+	<tr><td><?php echo $this->formSubmit($form->get('submit')); ?></td></tr>
+</table>
+<?php
 echo $this->form()->closeTag();
